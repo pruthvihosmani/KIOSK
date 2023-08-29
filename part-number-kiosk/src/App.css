@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('/Users/pruthvihosmani/Desktop/kiosk/KIOSK/part-number-kiosk/src/images/120.jpeg');
+  background-image: url('/workspaces/KIOSK/part-number-kiosk/src/images/120.jpeg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top center; /* Adjust the positioning */
