@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import logo from '/workspaces/KIOSK/part-number-kiosk/src/images/Bosch_Rexroth-Logo.png';
 import PartDetailsPage from '/workspaces/KIOSK/part-number-kiosk/src/PartDetailsPage.jsx';
 
@@ -62,11 +62,9 @@ function App() {
           )}
         </div>
       </div>
-      <Switch>
-        <Route path="/part-details">
-          <PartDetailsPage />
-        </Route>
-      </Switch>
+      <Route path="/part-details">
+        <PartDetailsPage />
+      </Route>
     </Router>
   );
 }
