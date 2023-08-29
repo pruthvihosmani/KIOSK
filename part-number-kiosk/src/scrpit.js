@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
-// Use the environment variable to get the connection string
-const uri = process.env.MONGODB_ATLAS_URI;
+// Replace 'your-local-uri' with the connection string to your local MongoDB instance
+const uri = 'mongodb://localhost:27017/RBOSCH.PUMPNUMBERS';
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -11,12 +11,12 @@ const client = new MongoClient(uri, {
 async function connectToDB() {
   try {
     await client.connect();
-    console.log("Connected to MongoDB Atlas");
+    console.log('Connected to MongoDB Compass');
 
     // Perform database operations here
 
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
+    console.error('Error connecting to MongoDB:', error);
   } finally {
     // Close the connection when done
     // await client.close();
