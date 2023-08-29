@@ -62,7 +62,8 @@ body {
   background-color: #ffffff;
   margin-top: 20px;
   font-size: 16px;
-  color: rgb(26, 44, 68); /* Dark blue background */
+  color: rgb(26, 44, 68); /* Dark blue text color */
+  text-decoration: none; /* Remove underline */
 }
 
 .suggestions {
@@ -78,7 +79,7 @@ body {
 .suggestion {
   padding: 10px;
   cursor: pointer;
-  color: rgb(26, 44, 68); /* Dark blue background */
+  color: rgb(26, 44, 68); /* Dark blue text color */
 }
 
 .suggestion:hover {
@@ -89,17 +90,7 @@ body {
   padding: 10px;
   color: rgb(96, 122, 144); /* Gray-blue color */
 }
-.part-input {
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  background-color: #ffffff;
-  margin-top: 20px;
-  font-size: 16px;
-  color: rgb(26, 44, 68);
-  text-decoration: none; /* Remove underline */
-}
+
 .submit-button {
   background-color: #349d69; /* Change the color as needed */
   color: white;
@@ -114,7 +105,3 @@ body {
 .submit-button:hover {
   background-color: #237753; /* Darker color on hover */
 }
-
-
-
-
