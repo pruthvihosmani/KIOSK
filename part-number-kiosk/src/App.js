@@ -84,8 +84,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
-import logo from '/Users/pruthvihosmani/Desktop/kiosk/KIOSK/part-number-kiosk/src/images/1200px-Logo_of_Bosch_Rexroth_AG.svg.png';
-import PartDetailsPage from '/Users/pruthvihosmani/Desktop/kiosk/KIOSK/part-number-kiosk/src/PartDetailsPage.jsx';
+import logo from '/workspaces/KIOSK/part-number-kiosk/src/images/Bosch_Rexroth-Logo.png';
+import PartDetailsPage from '/workspaces/KIOSK/part-number-kiosk/src/PartDetailsPage.jsx';
 import axios from 'axios';
 
 function App() {
