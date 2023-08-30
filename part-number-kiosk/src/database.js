@@ -1,8 +1,10 @@
+// const uri = "mongodb+srv://user69:pERBQ4tLPABMNr3w@bosch.pma9lbt.mongodb.net/?retryWrites=true&w=majority";
+const fs = require('fs');
+const csv = require('csv-parser');
 const { MongoClient } = require('mongodb');
 
-// MongoDB connection string
-// const uri = "mongodb+srv://pruthvi:7dyQRD2cjYOGNc8L@bosch.pma9lbt.mongodb.net/?retryWrites=true&w=majority";
-const uri = "mongodb+srv://pruthvi:7dyQRD2cjYOGNc8L@bosch.pma9lbt.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://user69:pERBQ4tLPABMNr3w@bosch.pma9lbt.mongodb.net/?retryWrites=true&w=majority";
+
 async function connectToDatabase() {
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -10,24 +12,34 @@ async function connectToDatabase() {
     await client.connect();
     console.log('Connected to MongoDB');
 
-    // Now you can perform database operations using the 'client'
-    const db = client.db('GANESHJI'); // Replace 'mydatabase' with your database name
-    const collection = db.collection('Bosch'); // Replace 'mycollection' with your collection name
+    const db = client.db('Ganeshji');
+    const collection = db.collection('Bosch');
 
-    // Perform database operations here
-    const result = await collection.insertOne({ name: 'John', age: 30 });
-    console.log('Document inserted:', result.insertedId);
+    const rows = [];
 
-    const documents = await collection.find({}).toArray();
-    console.log('Documents:', documents);
+    // Read CSV file and populate the rows array
+    fs.createReadStream('/Users/pruthvihosmani/Desktop/kiosk/KIOSK/part-number-kiosk/src/Part List line 5.csv')
+      .pipe(csv())
+      .on('data', (row) => {
+        rows.push(row);
+      })
+      .on('end', async () => {
+        try {
+          // Insert all rows into the collection
+          const insertResult = await collection.insertMany(rows);
+          console.log('Documents inserted:', insertResult.insertedCount);
+        } catch (error) {
+          console.error('Insertion error:', error);
+        } finally {
+          client.close();
+          console.log('Connection closed.');
+        }
+      });
 
   } catch (err) {
     console.error('Error connecting to MongoDB:', err);
-  } finally {
-    // Always remember to close the connection
-    await client.close();
-    console.log('Connection closed.');
   }
 }
 
 connectToDatabase();
+
