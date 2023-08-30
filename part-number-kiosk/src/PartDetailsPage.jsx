@@ -34,7 +34,7 @@ function PartDetailsPage({ partNumber }) {
 
   return (
     <div className="part-details-page">
-      <h2 className="page-title">Part Details</h2>
+      <h1 className="page-title">Part Details</h1>
       <div className="input-container">
         <label className="input-label">A Side Fixture:</label>
         <input
